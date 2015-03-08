@@ -1,0 +1,82 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#2196f3"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".ConverterActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Celcius to Fahrenheit Converter"
+        android:textSize="32sp"
+        android:textColor="#e8eaf6"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-light"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="100dp">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Degrees Celcius"
+            android:textStyle="bold"
+            android:textSize="32sp"
+            android:textColor="#e8eaf6"
+            android:fontFamily="sans-serif-light"
+            android:inputType="numberDecimal"
+            android:id="@+id/celciusEdit"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="20sp"
+            android:paddingBottom="20sp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#e8eaf6"
+            android:textStyle="bold"
+            android:hint="Fahrenheit"
+            android:textSize="32sp"
+            android:fontFamily="sans-serif-light"
+            android:inputType="numberDecimal"
+            android:id="@+id/fahrenheitEdit"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:id="@+id/padding"/>ss
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Converts to"
+            android:fontFamily="sans-serif-light"
+            android:textSize="32sp"
+            android:background="#8bc34a"
+            android:textColor="#e8eaf6"
+            android:id="@+id/converttoButton"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="40dp"
+            android:textSize="48sp"
+            android:fontFamily="sans-serif-light"
+            android:id="@+id/result"/>
+
+
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>
