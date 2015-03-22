@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">AzureStoragePlan</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string-array name="azurestoragechoices">
+        <item name="georedun">Geographically redundant</item>
+        <item name="locredun">Locally redundant</item>
+    </string-array>
+
+</resources>
