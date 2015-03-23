@@ -43,30 +43,34 @@ public class AzureActivity extends Activity implements AdapterView.OnItemSelecte
         calculate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Double storagenum = Double.valueOf(storage.getText().toString());
-                DecimalFormat df = new DecimalFormat("#");
-                if(storagenum <= 0)
-                {
-                    result.setText("Cannot have storage less than or equal to 0");
-                }
-                else if(storagenum > 1000)
-                {
-                    Double afterTBSize = storagenum - 1000;
-                    price = (afterTBSize * aftertb) + (1000 * firsttb);
-                    Log.d("Size", afterTBSize + " " + price);
-                    result.setText(df.format(storagenum ) + "GB " + azureselect.getSelectedItem().toString() + " $" + price + " per month");
-                }
-                else if(storagenum <= 1000)
-                {
-                    price = (1000 * firsttb);
-                    Log.d("Size",storagenum + " " + price);
-                    result.setText(df.format(storagenum ) + "GB " + azureselect.getSelectedItem().toString() + " $" + price + " per month");
 
+                if(storage.getText().toString().matches(""))
+                {
+                    result.setText("Please enter valid storage");
+                    result.setTextColor(Color.RED);
                 }
                 else
                 {
-                        result.setText("Please enter valid storage");
-                        result.setTextColor(Color.RED);
+                    Double storagenum = Double.valueOf(storage.getText().toString());
+                    DecimalFormat df = new DecimalFormat("#");
+                    if(storagenum <= 0)
+                    {
+                        result.setText("Cannot have storage less than or equal to 0");
+                    }
+                    else if(storagenum > 1000)
+                    {
+                        Double afterTBSize = storagenum - 1000;
+                        price = (afterTBSize * aftertb) + (1000 * firsttb);
+                        Log.d("Size", afterTBSize + " " + price);
+                        result.setText(df.format(storagenum ) + "GB " + azureselect.getSelectedItem().toString() + " $" + price + " per month");
+                    }
+                    else if(storagenum <= 1000)
+                    {
+                        price = (storagenum * firsttb);
+                        Log.d("Size", storagenum + " " + price);
+                        result.setText(df.format(storagenum ) + "GB " + azureselect.getSelectedItem().toString() + " $" + price + " per month");
+
+                    }
                 }
             }
         });

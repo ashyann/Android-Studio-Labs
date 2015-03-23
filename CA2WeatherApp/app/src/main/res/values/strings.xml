@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">CA2 Weather App</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string-array name="cities">
+        <item name = "Dublin"></item>
+        <item name = "London"></item>
+        <item name = "New York"></item>
+    </string-array>
+
+</resources>
