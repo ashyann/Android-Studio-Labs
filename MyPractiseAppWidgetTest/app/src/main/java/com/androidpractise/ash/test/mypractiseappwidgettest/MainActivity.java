@@ -4,20 +4,32 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.RadioButton;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements AdapterView.OnItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Spinner spinner = (Spinner)findViewById(R.id.spinner);
+
+        ArrayAdapter adapter = ArrayAdapter.createFromResource(this,R.array.populatedlist,R.layout.support_simple_spinner_dropdown_item);
+
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
     }
 
     public void onRadioButtonClicked(View view)
@@ -112,5 +124,48 @@ public class MainActivity extends ActionBarActivity {
                 }
 
         }
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        final TextView selected = (TextView) findViewById(R.id.selectedmessage);
+
+        Log.d("Selected",getString(R.string.choice1));
+        Log.d("Selected",getString(R.string.choice2));
+        Log.d("Selected",getString(R.string.choice3));
+
+
+        if(parent.getSelectedItem().toString().trim().equals(getString(R.string.choice1)))
+        {
+            Toast.makeText(MainActivity.this,getString(R.string.choice1) + " has been selected!",Toast.LENGTH_LONG).show();
+            selected.setText(getString(R.string.choice1) + " has been selected!");
+        }
+        if(parent.getSelectedItem().toString().trim().equals(getString(R.string.choice2)))
+        {
+            Toast.makeText(MainActivity.this,getString(R.string.choice2) + " has been selected!",Toast.LENGTH_LONG).show();
+            selected.setText(getString(R.string.choice2) + " has been selected!");
+        }
+        if(parent.getSelectedItem().toString().trim().equals(getString(R.string.choice3)))
+        {
+            new AlertDialog.Builder(this)
+                    .setTitle(getString(R.string.choice3) + " has been selected!")
+                    .setMessage("You you want to continue?")
+                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            selected.setText(getString(R.string.choice3) + " has been selected!");
+                        }
+                    })
+                    .setNegativeButton(android.R.string.no,new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            selected.setText(getString(R.string.choice3) + " doesn't want to be selected!");
+                        }
+                    }).show();
+        }
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }
