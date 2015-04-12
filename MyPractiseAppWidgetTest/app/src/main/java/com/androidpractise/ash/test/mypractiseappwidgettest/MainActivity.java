@@ -7,6 +7,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
@@ -90,5 +91,26 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void onCheckBoxClicked(View view) {
+        // Is the button now checked?
+        boolean checked = ((CheckBox) view).isChecked();
+
+        final TextView message = (TextView) findViewById(R.id.checkboxmessage);
+
+        // Check which checkbox was clicked
+        switch (view.getId()) {
+            case R.id.checkBox:
+                if(checked)
+                {
+                    message.setText("Check me out :D I'm checked yay");
+                }
+                else
+                {
+                    message.setText("why u no check :'(");
+                }
+
+        }
     }
 }
