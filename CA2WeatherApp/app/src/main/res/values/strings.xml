@@ -4,6 +4,7 @@
     <string name="app_name">CA2 Weather App</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="weatherlabel">Weather App</string>
 
     <string-array name="cities">
         <item name = "Dublin"></item>
